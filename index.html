@@ -778,31 +778,69 @@ async function analyzeWebsite(){
   msg.style.color = 'var(--text2)'
   msg.textContent = 'Website wird analysiert…'
 
+  function applyProfile(p) {
+    if(p.name) document.getElementById('cName').value = p.name
+    if(p.industry) document.getElementById('cInd').value = p.industry
+    if(p.audience) document.getElementById('cAud').value = p.audience
+    if(p.usp) document.getElementById('cUsp').value = p.usp
+    if(p.color_primary){ document.getElementById('cc0').value=p.color_primary; cColor(0) }
+    if(p.color_secondary){ document.getElementById('cc1').value=p.color_secondary; cColor(1) }
+    if(p.color_accent){ document.getElementById('cc2').value=p.color_accent; cColor(2) }
+    if(p.font){ document.getElementById('cFont').value=p.font; updateFontPreview() }
+    msg.style.background = 'var(--greenbg)'
+    msg.style.color = 'var(--green)'
+    msg.textContent = '✓ Profil wurde automatisch ausgefüllt – bitte prüfen und anpassen!'
+  }
+
   try {
-    // Fetch HTML via analyze-url route
-    const res = await fetch('/api/analyze-url', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ url, extractProfile: true })
-    })
-    if(!res.ok) throw new Error('Server Fehler')
-    const data = await res.json()
-    
-    if(data.profile) {
-      const p = data.profile
-      if(p.name) document.getElementById('cName').value = p.name
-      if(p.industry) document.getElementById('cInd').value = p.industry
-      if(p.audience) document.getElementById('cAud').value = p.audience
-      if(p.usp) document.getElementById('cUsp').value = p.usp
-      if(p.color_primary){ document.getElementById('cc0').value=p.color_primary; cColor(0) }
-      if(p.color_secondary){ document.getElementById('cc1').value=p.color_secondary; cColor(1) }
-      if(p.color_accent){ document.getElementById('cc2').value=p.color_accent; cColor(2) }
-      if(p.font) document.getElementById('cFont').value = p.font
-      msg.style.background = 'var(--greenbg)'
-      msg.style.color = 'var(--green)'
-      msg.textContent = '✓ Profil wurde automatisch ausgefüllt – bitte prüfen und anpassen!'
+    // Try server-side route first (has HTML access + screenshot)
+    let profile = null
+    try {
+      const res = await fetch('/api/analyze-url', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ url, extractProfile: true })
+      })
+      if(res.ok) {
+        const data = await res.json()
+        if(data.profile) profile = data.profile
+      }
+    } catch(serverErr) {
+      // Server not available – fall through to direct API
+    }
+
+    // Fallback: call Anthropic directly with just the URL
+    if(!profile) {
+      msg.textContent = 'Direkte KI-Analyse läuft…'
+      const prompt = `Analysiere diese Website-URL und erstelle ein Marketing-Kundenprofil.
+URL: ${url}
+
+Basierend nur auf der URL und deinem Wissen über diese Website/Domain extrahiere:
+- name: Firmenname
+- industry: Branche (E-Commerce / SaaS / Software / Gesundheit & Beauty / Finance / Versicherung / Immobilien / Bildung / B2B Services / Gastronomie / Retail / Sonstige)
+- audience: Zielgruppe (kurz, 1 Satz)
+- usp: Mögliche Kernbotschaft
+- color_primary: Vermutete Primärfarbe als Hex (Schätzung OK)
+- color_secondary: Sekundärfarbe als Hex
+- color_accent: Akzentfarbe als Hex
+- font: Typische Schrift für diese Branche
+
+JSON ohne Backticks: {"name":"...","industry":"...","audience":"...","usp":"...","color_primary":"#...","color_secondary":"#...","color_accent":"#...","font":"..."}`
+      const r = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','x-api-key':ANT_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+        body: JSON.stringify({model:'claude-sonnet-4-6',max_tokens:400,messages:[{role:'user',content:prompt}]})
+      })
+      if(!r.ok) throw new Error('KI-Analyse fehlgeschlagen (' + r.status + ')')
+      const d = await r.json()
+      const txt = d.content?.map(b=>b.text||'').join('')||''
+      try { profile = JSON.parse(txt.replace(/```json|```/g,'').trim()) } catch { profile = null }
+    }
+
+    if(profile) {
+      applyProfile(profile)
     } else {
-      throw new Error(data.error || 'Profil konnte nicht extrahiert werden')
+      throw new Error('Profil konnte nicht extrahiert werden')
     }
   } catch(e) {
     msg.style.background = 'var(--redbg)'
