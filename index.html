@@ -299,21 +299,18 @@ button{cursor:pointer;transition:all .15s}
       <button class="btn btn-primary btn-full btn-lg" style="margin-top:8px" onclick="obNext(1)">Weiter →</button>
     </div>
     <div id="ob1" style="display:none">
-      <h1 class="auth-title">Brand Kit</h1>
-      <p class="auth-sub">Die App passt sich eurer CI an.</p>
-      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:16px">
-        <div style="display:flex;align-items:center;gap:12px"><div class="cswatch" id="obs0" style="width:44px;height:44px;background:#7C6EF5"><input type="color" id="obc0" value="#7C6EF5" oninput="obColor(0)"></div><div><div class="label" style="margin:0">Primärfarbe</div><span style="font-size:11px;color:var(--text3)" id="obh0">#7C6EF5</span></div></div>
-        <div style="display:flex;align-items:center;gap:12px"><div class="cswatch" id="obs1" style="width:44px;height:44px;background:#1a1a1a"><input type="color" id="obc1" value="#1a1a1a" oninput="obColor(1)"></div><div><div class="label" style="margin:0">Sekundärfarbe</div><span style="font-size:11px;color:var(--text3)" id="obh1">#1a1a1a</span></div></div>
-        <div style="display:flex;align-items:center;gap:12px"><div class="cswatch" id="obs2" style="width:44px;height:44px;background:#FBBF24"><input type="color" id="obc2" value="#FBBF24" oninput="obColor(2)"></div><div><div class="label" style="margin:0">Akzentfarbe</div><span style="font-size:11px;color:var(--text3)" id="obh2">#FBBF24</span></div></div>
+      <h1 class="auth-title">Fast fertig!</h1>
+      <p class="auth-sub">Lege die E-Mail-Domain für dein Team fest.</p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div>
+          <label class="label">E-Mail-Domain (optional)</label>
+          <input id="obDomain" placeholder="z.B. meinefirma.de" style="margin-bottom:4px">
+          <div style="font-size:11px;color:var(--text3)">Mitarbeiter mit dieser Domain können automatisch beitreten.</div>
+        </div>
       </div>
-      <div class="fg"><label class="label">Hauptschrift (optional)</label><input id="obFont" placeholder="z.B. Helvetica Neue, Inter"></div>
-      <div class="prev-bar" id="obPrev" style="border:1px solid rgba(124,110,245,.3)">
-        <div class="prev-hdr" id="obPH" style="background:#7C6EF5">Optivise – Deine Agentur</div>
-        <div class="prev-body"><div class="prev-btn" id="obPB" style="background:#FBBF24">Audit starten</div></div>
-      </div>
-      <div style="display:flex;gap:8px;margin-top:16px">
-        <button class="btn btn-secondary" onclick="obNext(0)">← Zurück</button>
-        <button class="btn btn-primary" style="flex:1" onclick="obNext(2)">Weiter →</button>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <button class="btn btn-secondary" onclick="obNext(0)" style="flex:1">Zurück</button>
+        <button class="btn btn-primary" onclick="obNext(2)" style="flex:2">Weiter →</button>
       </div>
     </div>
     <div id="ob2" style="display:none">
@@ -626,14 +623,7 @@ async function loadOrg(u){
   }
   return false
 }
-function applyCI(o){
-  if(!o)return
-  const r=document.documentElement
-  if(o.color_primary){r.style.setProperty('--purple',o.color_primary);r.style.setProperty('--purple2',o.color_primary+'bb');r.style.setProperty('--purplebg',o.color_primary+'18')}
-  if(o.color_accent){r.style.setProperty('--amber',o.color_accent);r.style.setProperty('--amberbg',o.color_accent+'18')}
-  if(o.font)r.style.setProperty('--font',`'${o.font}',system-ui,sans-serif`)
-  document.querySelectorAll('.logo-mark').forEach(el=>el.style.background=o.color_primary||'var(--purple)')
-}
+function applyCI(o){}
 
 // ONBOARD
 let obStep=0
@@ -643,20 +633,14 @@ function obNext(s){
   ;['os0','os1','os2'].forEach((id,i)=>{const el=document.getElementById(id);el.classList.remove('active','done');if(i===s)el.classList.add('active');if(i<s)el.classList.add('done')})
   if(s===2)document.getElementById('obSN').textContent=document.getElementById('obName').value
 }
-function obColor(i){
-  const v=document.getElementById(`obc${i}`).value
-  document.getElementById(`obs${i}`).style.background=v;document.getElementById(`obh${i}`).textContent=v
-  if(i===0)document.getElementById('obPH').style.background=v
-  if(i===2)document.getElementById('obPB').style.background=v
-}
+
 async function createOrg(){
   const btn=document.getElementById('obCreateBtn');btn.innerHTML='<div class="spinner"></div>';btn.disabled=true
   try{
     const name=document.getElementById('obName').value.trim()
     const{data:o,error}=await sb.from('organizations').insert({
       name,owner_id:user.id,slug:name.toLowerCase().replace(/[^a-z0-9]/g,'-').replace(/-+/g,'-'),
-      color_primary:document.getElementById('obc0').value,color_secondary:document.getElementById('obc1').value,color_accent:document.getElementById('obc2').value,
-      font:document.getElementById('obFont').value||null,allowed_domain:document.getElementById('obDomain').value.trim()||null
+      allowed_domain:document.getElementById('obDomain').value.trim()||null
     }).select().single()
     if(error)throw error
     await sb.from('memberships').insert({org_id:o.id,user_id:user.id,email:user.email,role:'owner',status:'active'})
@@ -669,7 +653,7 @@ async function createOrg(){
 async function loadDash(){
   if(!org)return
   document.getElementById('dOrgName').textContent=org.name
-  document.getElementById('dlm').style.background=org.color_primary||'var(--purple)'
+  // logo mark keeps app design
   const{data}=await sb.from('clients').select('*').eq('org_id',org.id).order('created_at',{ascending:false})
   clients=data||[];renderGrid()
 }
