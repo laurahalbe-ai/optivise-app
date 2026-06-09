@@ -24,7 +24,7 @@
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:2px}
 input,select,textarea,button{font-family:var(--font);font-size:13px}
-input,select,textarea{width:100%;padding:9px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);color:var(--text);outline:none;transition:border-color .15s}
+input,select,textarea{width:100%;padding:11px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);color:var(--text);outline:none;transition:border-color .15s}
 input:focus,select:focus,textarea:focus{border-color:var(--purple)}
 input::placeholder,textarea::placeholder{color:var(--text3)}
 select option{background:var(--bg2)}
@@ -34,7 +34,7 @@ button{cursor:pointer;transition:all .15s}
 .btn-primary{background:var(--purple);color:#fff}.btn-primary:hover{filter:brightness(1.1)}.btn-primary:disabled{background:var(--bg3);color:var(--text3);cursor:not-allowed}
 .btn-secondary{background:var(--bg2);color:var(--text);border:1px solid var(--border)}.btn-secondary:hover{background:var(--bg3)}
 .btn-ghost{background:none;color:var(--text2);border:none}.btn-ghost:hover{color:var(--text);background:var(--bg2)}
-.btn-full{width:100%}.btn-lg{padding:12px 20px;font-size:14px;border-radius:var(--rlg)}
+.btn-full{width:100%}.btn-lg{padding:14px 22px;font-size:15px;border-radius:var(--rlg)}
 .badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
 .badge-error{background:var(--redbg);color:var(--red)}.badge-warning{background:var(--amberbg);color:var(--amber)}.badge-cro{background:var(--bluebg);color:var(--blue)}.badge-ci{background:var(--purplebg);color:var(--purple2)}.badge-copy{background:var(--greenbg);color:var(--green)}.badge-hint{background:var(--bg3);color:var(--text3);border:1px solid var(--border)}
 .spinner{width:18px;height:18px;border:2px solid var(--border2);border-top-color:var(--purple);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}.spinner-lg{width:36px;height:36px;border-width:3px}
@@ -49,12 +49,12 @@ button{cursor:pointer;transition:all .15s}
 /* AUTH */
 #authPage{align-items:center;justify-content:center;padding:24px;background:var(--bg)}
 .auth-bg{position:fixed;inset:0;background:radial-gradient(ellipse 60% 50% at 50% -5%,rgba(124,110,245,.2) 0%,transparent 70%);pointer-events:none}
-.auth-card{position:relative;z-index:1;width:100%;max-width:380px;background:var(--bg1);border:1px solid var(--border);border-radius:var(--rxl);padding:32px;box-shadow:0 4px 40px rgba(0,0,0,.5)}
+.auth-card{position:relative;z-index:1;width:100%;max-width:480px;background:var(--bg1);border:1px solid var(--border);border-radius:var(--rxl);padding:40px;box-shadow:0 4px 40px rgba(0,0,0,.5)}
 .logo{display:flex;align-items:center;gap:10px;margin-bottom:28px}
 .logo-mark{width:32px;height:32px;border-radius:8px;background:var(--purple);display:flex;align-items:center;justify-content:center;transition:background .3s}
 .logo-text{font-size:16px;font-weight:700;letter-spacing:-.02em}
-.auth-title{font-size:22px;font-weight:700;letter-spacing:-.03em;margin-bottom:6px}
-.auth-sub{font-size:13px;color:var(--text2);margin-bottom:22px;line-height:1.5}
+.auth-title{font-size:26px;font-weight:700;letter-spacing:-.03em;margin-bottom:6px}
+.auth-sub{font-size:15px;color:var(--text2);margin-bottom:22px;line-height:1.5}
 .auth-form{display:flex;flex-direction:column;gap:13px}
 .auth-field{display:flex;flex-direction:column;gap:5px}
 .auth-footer{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap}
@@ -62,9 +62,9 @@ button{cursor:pointer;transition:all .15s}
 
 /* ONBOARD */
 #onboardPage{align-items:center;justify-content:center;padding:24px;background:var(--bg)}
-.ob-card{width:100%;max-width:440px;background:var(--bg1);border:1px solid var(--border);border-radius:var(--rxl);padding:32px}
+.ob-card{width:100%;max-width:560px;background:var(--bg1);border:1px solid var(--border);border-radius:var(--rxl);padding:40px}
 .ob-steps{display:flex;margin-bottom:26px}
-.ob-step{display:flex;align-items:center;gap:6px;flex:1;font-size:11px;color:var(--text3);font-weight:500}
+.ob-step{display:flex;align-items:center;gap:6px;flex:1;font-size:13px;color:var(--text3);font-weight:500}
 .ob-step::after{content:'';flex:1;height:1px;background:var(--border);margin:0 6px}
 .ob-step:last-child::after{display:none}
 .sdot{width:20px;height:20px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
@@ -242,6 +242,18 @@ button{cursor:pointer;transition:all .15s}
 .crswatch input[type=color]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;padding:0;border:none}
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .tchip{padding:6px 4px;border-radius:7px;border:1px solid var(--border);background:none;cursor:pointer;font-size:11px;font-weight:500;text-align:center;color:var(--text2);font-family:var(--font)}
+.color-item{display:flex;flex-direction:column;align-items:center;gap:5px}
+.big-swatch{width:54px;height:54px;border-radius:50%;position:relative;overflow:hidden;cursor:pointer;border:2px solid rgba(255,255,255,.15);transition:transform .15s}
+.big-swatch:hover{transform:scale(1.08)}
+.big-swatch input[type=color]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;padding:0;border:none}
+.swatch-rm{position:absolute;top:-3px;right:-3px;width:16px;height:16px;border-radius:50%;background:var(--bg1);border:1px solid var(--border);font-size:9px;cursor:pointer;font-family:var(--font);display:flex;align-items:center;justify-content:center;z-index:1}
+.swatch-hex{font-size:10px;font-family:var(--mono);color:var(--text2)}
+.swatch-role{font-size:10px;color:var(--text3)}
+.logo-item{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rlg);padding:10px 8px 6px;display:flex;flex-direction:column;align-items:center;gap:5px}
+.logo-item img{width:100%;max-height:55px;object-fit:contain}
+.logo-item-name{font-size:9px;color:var(--text3);text-align:center;word-break:break-all;max-width:80px}
+.logo-item-rm{position:absolute;top:3px;right:3px;background:var(--bg3);border:none;cursor:pointer;color:var(--text3);font-size:10px;border-radius:3px;width:16px;height:16px;display:flex;align-items:center;justify-content:center}
+.logo-item-rm:hover{background:var(--redbg);color:var(--red)}
 .tchip:hover{border-color:var(--border2)}.tchip.on{border-color:var(--purple)!important;background:var(--purplebg)!important;color:var(--purple2)!important}
 </style>
 </head>
@@ -275,15 +287,15 @@ button{cursor:pointer;transition:all .15s}
     <div class="logo"><div class="logo-mark" id="olm"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L15.5 6V12L9 16L2.5 12V6L9 2Z" fill="white" fillOpacity=".9"/></svg></div><span class="logo-text">Optivise</span></div>
     <div class="ob-steps">
       <div class="ob-step active" id="os0"><div class="sdot">1</div><span>Agentur</span></div>
-      <div class="ob-step" id="os1"><div class="sdot">2</div><span>Brand Kit</span></div>
+      <div class="ob-step" id="os1"><div class="sdot">2</div><span style="white-space:nowrap">Brand Kit</span></div>
       <div class="ob-step" id="os2"><div class="sdot">3</div><span>Los!</span></div>
     </div>
     <div id="ob0">
       <h1 class="auth-title">Willkommen!</h1>
       <p class="auth-sub">Erstelle den Account für deine Agentur.</p>
       <div id="ob0msg"></div>
-      <div class="fg"><label class="label">Name der Agentur *</label><input id="obName" placeholder="z.B. Brand Boutique GmbH"></div>
-      <div class="fg"><label class="label">E-Mail-Domain (optional)</label><input id="obDomain" placeholder="z.B. brandboutique.de"><span style="font-size:11px;color:var(--text3);margin-top:3px;display:block">Mitarbeiter dieser Domain treten automatisch bei</span></div>
+      <div class="fg"><label class="label">Name der Agentur *</label><input id="obName" placeholder="Name der Agentur"></div>
+      <div class="fg"><label class="label">E-Mail-Domain (optional)</label><input id="obDomain" placeholder="domain.de"><span style="font-size:11px;color:var(--text3);margin-top:3px;display:block">Mitarbeiter dieser Domain treten automatisch bei</span></div>
       <button class="btn btn-primary btn-full btn-lg" style="margin-top:8px" onclick="obNext(1)">Weiter →</button>
     </div>
     <div id="ob1" style="display:none">
@@ -440,7 +452,7 @@ button{cursor:pointer;transition:all .15s}
     <div class="mlist" id="mlist"></div>
     <div class="sec-title" style="margin-top:20px">⚙️ Einstellungen</div>
     <div style="background:var(--bg1);border:1px solid var(--border);border-radius:var(--rlg);padding:16px;margin-top:10px">
-      <div class="fg"><label class="label">E-Mail-Domain (Auto-Beitritt)</label><input id="tDomain" placeholder="z.B. brandboutique.de"><span style="font-size:11px;color:var(--text3);margin-top:3px;display:block">Mitarbeiter dieser Domain treten automatisch bei</span></div>
+      <div class="fg"><label class="label">E-Mail-Domain (Auto-Beitritt)</label><input id="tDomain" placeholder="domain.de"><span style="font-size:11px;color:var(--text3);margin-top:3px;display:block">Mitarbeiter dieser Domain treten automatisch bei</span></div>
       <button class="btn btn-primary" onclick="saveDomain()">Speichern</button>
     </div>
   </div>
@@ -456,6 +468,15 @@ button{cursor:pointer;transition:all .15s}
     </div>
     <div class="mbody">
       <div id="mt0">
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--rlg);padding:14px;margin-bottom:16px">
+          <div style="font-size:13px;font-weight:600;margin-bottom:6px">🔍 Profil automatisch erstellen</div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:10px;line-height:1.5">Website-URL eingeben – KI extrahiert automatisch Name, Farben, Schrift, Branche und USP.</div>
+          <div style="display:flex;gap:8px">
+            <input type="url" id="cWebUrl" placeholder="https://kunde.de" style="flex:1">
+            <button class="btn btn-primary" onclick="analyzeWebsite()" id="analyzeBtn" style="white-space:nowrap;flex-shrink:0">Analysieren</button>
+          </div>
+          <div id="analyzeMsg" style="display:none;margin-top:8px;font-size:11px;padding:8px 10px;border-radius:var(--r)"></div>
+        </div>
         <div class="r2">
           <div class="fg"><label class="label">Name *</label><input id="cName" placeholder="z.B. Müller GmbH"></div>
           <div class="fg"><label class="label">Branche</label><select id="cInd"><option value="">Branche…</option><option>E-Commerce</option><option>SaaS / Software</option><option>Gesundheit & Beauty</option><option>Finance / Versicherung</option><option>Immobilien</option><option>Bildung</option><option>B2B Services</option><option>Gastronomie / Retail</option><option>Sonstige</option></select></div>
@@ -466,13 +487,60 @@ button{cursor:pointer;transition:all .15s}
         <div class="fg"><label class="label">Verbote</label><textarea id="cDonts" rows="2" placeholder="z.B. kein Rot, keine Ausrufezeichen"></textarea></div>
       </div>
       <div id="mt1" style="display:none">
-        <div class="crgrid">
-          <div class="fg"><label class="label">Primärfarbe</label><div style="display:flex;align-items:center;gap:8px"><div class="crswatch" id="ccs0" style="width:30px;height:30px;background:#7C6EF5"><input type="color" id="cc0" value="#7C6EF5" oninput="cColor(0)"></div><span style="font-size:11px;font-family:var(--mono);color:var(--text2)" id="cch0">#7C6EF5</span></div></div>
-          <div class="fg"><label class="label">Sekundärfarbe</label><div style="display:flex;align-items:center;gap:8px"><div class="crswatch" id="ccs1" style="width:30px;height:30px;background:#1a1a1a"><input type="color" id="cc1" value="#1a1a1a" oninput="cColor(1)"></div><span style="font-size:11px;font-family:var(--mono);color:var(--text2)" id="cch1">#1a1a1a</span></div></div>
-          <div class="fg"><label class="label">Akzentfarbe</label><div style="display:flex;align-items:center;gap:8px"><div class="crswatch" id="ccs2" style="width:30px;height:30px;background:#FBBF24"><input type="color" id="cc2" value="#FBBF24" oninput="cColor(2)"></div><span style="font-size:11px;font-family:var(--mono);color:var(--text2)" id="cch2">#FBBF24</span></div></div>
+
+        <!-- LOGOS -->
+        <div style="margin-bottom:20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+            <span style="font-size:14px;font-weight:600">Logos</span>
+            <button class="btn btn-secondary" style="font-size:11px;padding:4px 10px" onclick="document.getElementById('logoInput').click()">+ Hinzufügen</button>
+          </div>
+          <input type="file" id="logoInput" accept="image/*" multiple style="display:none" onchange="addLogos(event)">
+          <div id="logoGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px">
+            <div onclick="document.getElementById('logoInput').click()" style="border:1.5px dashed var(--border2);border-radius:var(--rlg);min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;color:var(--text3);font-size:11px" id="logoAddBtn">
+              <span style="font-size:22px">+</span><span>Logo</span>
+            </div>
+          </div>
         </div>
-        <div class="fg"><label class="label">Schrift</label><input id="cFont" placeholder="z.B. Helvetica Neue"></div>
-        <div class="fg"><label class="label">Tonalität</label>
+
+        <!-- FARBEN -->
+        <div style="margin-bottom:20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+            <span style="font-size:14px;font-weight:600">Farben</span>
+            <button class="btn btn-secondary" style="font-size:11px;padding:4px 10px" onclick="addColor()">+ Farbe</button>
+          </div>
+          <div id="colorPalette" style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start">
+            <div class="color-item">
+              <div class="big-swatch" style="background:#7C6EF5"><input type="color" id="cc0" value="#7C6EF5" oninput="cColor(0)"><button class="swatch-rm" onclick="event.stopPropagation()" style="display:none">✕</button></div>
+              <span class="swatch-hex" id="cch0">#7C6EF5</span>
+              <span class="swatch-role">Primär</span>
+            </div>
+            <div class="color-item">
+              <div class="big-swatch" style="background:#1a1a1a"><input type="color" id="cc1" value="#1a1a1a" oninput="cColor(1)"><button class="swatch-rm" onclick="event.stopPropagation()" style="display:none">✕</button></div>
+              <span class="swatch-hex" id="cch1">#1a1a1a</span>
+              <span class="swatch-role">Sekundär</span>
+            </div>
+            <div class="color-item">
+              <div class="big-swatch" style="background:#FBBF24"><input type="color" id="cc2" value="#FBBF24" oninput="cColor(2)"><button class="swatch-rm" onclick="event.stopPropagation()" style="display:none">✕</button></div>
+              <span class="swatch-hex" id="cch2">#FBBF24</span>
+              <span class="swatch-role">Akzent</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCHRIFTARTEN -->
+        <div style="margin-bottom:20px">
+          <div style="margin-bottom:10px"><span style="font-size:14px;font-weight:600">Schriftarten</span></div>
+          <input id="cFont" placeholder="z.B. Helvetica Neue, Playfair Display" oninput="updateFontPreview()">
+          <div id="fontPreview" style="display:none;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rlg);padding:16px 20px;margin-top:10px">
+            <div id="fpTitle" style="font-size:22px;font-weight:400;margin-bottom:4px">Titel</div>
+            <div id="fpSub" style="font-size:15px;margin-bottom:4px">Untertitel</div>
+            <div id="fpBody" style="font-size:12px;color:var(--text2);font-style:italic">Fließtext</div>
+          </div>
+        </div>
+
+        <!-- BRAND VOICE -->
+        <div>
+          <div style="margin-bottom:10px"><span style="font-size:14px;font-weight:600">Brand Voice</span></div>
           <div class="tgrid">
             <button class="tchip" onclick="this.classList.toggle('on')">Professionell</button>
             <button class="tchip" onclick="this.classList.toggle('on')">Freundlich</button>
@@ -711,14 +779,124 @@ function openCM(client){
   document.getElementById('cGoal').value=client?.goal||''
   document.getElementById('cDonts').value=client?.donts||''
   document.getElementById('cFont').value=client?.font||''
+  if(client?.font) updateFontPreview()
   const cols=[client?.color_primary||'#7C6EF5',client?.color_secondary||'#1a1a1a',client?.color_accent||'#FBBF24']
   cols.forEach((v,i)=>{document.getElementById(`cc${i}`).value=v;document.getElementById(`ccs${i}`).style.background=v;document.getElementById(`cch${i}`).textContent=v})
   document.querySelectorAll('.tchip').forEach(b=>b.classList.toggle('on',(client?.tones||[]).includes(b.textContent.trim())))
   document.getElementById('cmMsg').innerHTML=''
+  clientLogos=[]; extraColors=[]; renderLogoGrid(); renderExtraColors()
+  document.getElementById('fontPreview').style.display='none'
   mTab(document.querySelector('.mtab'),'mt0')
   openM('cmModal')
 }
+async function analyzeWebsite(){
+  const url = document.getElementById('cWebUrl').value.trim()
+  if(!url) return
+  const btn = document.getElementById('analyzeBtn')
+  const msg = document.getElementById('analyzeMsg')
+  btn.innerHTML = '<div class="spinner"></div>'
+  btn.disabled = true
+  msg.style.display = 'block'
+  msg.style.background = 'var(--bg3)'
+  msg.style.color = 'var(--text2)'
+  msg.textContent = 'Website wird analysiert…'
+
+  try {
+    // Fetch HTML via analyze-url route
+    const res = await fetch('/api/analyze-url', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ url, extractProfile: true })
+    })
+    if(!res.ok) throw new Error('Server Fehler')
+    const data = await res.json()
+    
+    if(data.profile) {
+      const p = data.profile
+      if(p.name) document.getElementById('cName').value = p.name
+      if(p.industry) document.getElementById('cInd').value = p.industry
+      if(p.audience) document.getElementById('cAud').value = p.audience
+      if(p.usp) document.getElementById('cUsp').value = p.usp
+      if(p.color_primary){ document.getElementById('cc0').value=p.color_primary; cColor(0) }
+      if(p.color_secondary){ document.getElementById('cc1').value=p.color_secondary; cColor(1) }
+      if(p.color_accent){ document.getElementById('cc2').value=p.color_accent; cColor(2) }
+      if(p.font) document.getElementById('cFont').value = p.font
+      msg.style.background = 'var(--greenbg)'
+      msg.style.color = 'var(--green)'
+      msg.textContent = '✓ Profil wurde automatisch ausgefüllt – bitte prüfen und anpassen!'
+    } else {
+      throw new Error(data.error || 'Profil konnte nicht extrahiert werden')
+    }
+  } catch(e) {
+    msg.style.background = 'var(--redbg)'
+    msg.style.color = 'var(--red)'
+    msg.textContent = '✗ ' + e.message
+  }
+  btn.innerHTML = 'Analysieren'
+  btn.disabled = false
+}
+
 function cColor(i){const v=document.getElementById(`cc${i}`).value;document.getElementById(`ccs${i}`).style.background=v;document.getElementById(`cch${i}`).textContent=v}
+// Logo management
+let clientLogos = []
+function addLogos(event){
+  Array.from(event.target.files).forEach(f => {
+    const reader = new FileReader()
+    reader.onload = e => {
+      clientLogos.push({ url: e.target.result, name: f.name })
+      renderLogoGrid()
+    }
+    reader.readAsDataURL(f)
+  })
+}
+function renderLogoGrid(){
+  const grid = document.getElementById('logoGrid')
+  const addBtn = `<div onclick="document.getElementById('logoInput').click()" style="border:1.5px dashed var(--border2);border-radius:var(--rlg);min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;color:var(--text3);font-size:11px"><span style="font-size:22px">+</span><span>Hinzufügen</span></div>`
+  grid.innerHTML = clientLogos.map((l,i) => `<div class="logo-item"><img src="${l.url}" alt=""><div class="logo-item-name">${l.name.slice(0,18)}</div><button class="logo-item-rm" onclick="removeLogo(${i})">✕</button></div>`).join('') + addBtn
+}
+function removeLogo(i){ clientLogos.splice(i,1); renderLogoGrid() }
+
+// Extra colors
+let extraColors = []
+function addColor(){
+  if(extraColors.length >= 5) return
+  const idx = 3 + extraColors.length
+  extraColors.push('#cccccc')
+  const palette = document.getElementById('colorPalette')
+  const div = document.createElement('div')
+  div.className = 'color-item'
+  div.id = `extraColor${idx}`
+  div.innerHTML = `<div class="big-swatch" style="background:#cccccc"><input type="color" value="#cccccc" oninput="updateExtraColor(${idx-3},this.value)"><button class="swatch-rm" onclick="removeExtraColor(${idx-3})" style="display:flex">✕</button></div><span class="swatch-hex" id="exh${idx-3}">#cccccc</span><span class="swatch-role">Farbe ${idx-2}</span>`
+  palette.appendChild(div)
+}
+function updateExtraColor(i,val){
+  extraColors[i]=val
+  document.getElementById(`exh${i}`).textContent=val
+  document.getElementById(`extraColor${i+3}`).querySelector('.big-swatch').style.background=val
+}
+function removeExtraColor(i){
+  extraColors.splice(i,1)
+  renderExtraColors()
+}
+function renderExtraColors(){
+  document.querySelectorAll('[id^="extraColor"]').forEach(el=>el.remove())
+  extraColors=[]
+}
+
+function updateFontPreview(){
+  const font = document.getElementById('cFont').value.trim()
+  const prev = document.getElementById('fontPreview')
+  if(font){
+    prev.style.display = 'block'
+    prev.style.fontFamily = font + ', sans-serif'
+    document.getElementById('fpTitle').style.fontFamily = font + ', sans-serif'
+    document.getElementById('fpSub').style.fontFamily = font + ', sans-serif'
+    document.getElementById('fpBody').style.fontFamily = font + ', sans-serif'
+  } else {
+    prev.style.display = 'none'
+  }
+}
+
 async function saveClient(){
   const name=document.getElementById('cName').value.trim()
   if(!name){showMsg('cmMsg','Name ist Pflicht.','error');return}
@@ -814,27 +992,93 @@ function extractFrames(file,count=6){
   })
 }
 
+const LP_CHECKS = (c) => `LANDINGPAGE – prüfe exakt diese 28 Punkte:
+1. Onepage Branding deaktiviert (kein Onepage-Logo sichtbar)
+2. Favicon als Logo-PNG mit transparentem Hintergrund hinterlegt
+3. Meta Description: 1-2 Sätze, Inhalt & Zielgruppe beschrieben
+4. Seitenname enthält Inhaltliches/Thema – keine Worte wie LP/Landingpage/Funnel
+5. Keine Platzhaltertexte (kein Lorem ipsum, [NAME], [TEXT], Mustermann etc.)
+6. CI-Farben korrekt: Primär ${c.c1||c.color_primary||'n/a'}, Sekundär ${c.c2||c.color_secondary||'n/a'}, Akzent ${c.c3||c.color_accent||'n/a'}
+7. Logo entspricht Corporate Design des Kunden
+8. Schriftart "${c.font||'CI-Schrift'}" verwendet, max. 2 verschiedene Schriftarten
+9. Buchstabenabstände bei gleichen Schriftarten einheitlich
+10. Zeilenabstände einheitlich (Bereich 1–1,5)
+11. Hoher Farbkontrast bei übereinanderliegenden Elementen (Text/Hintergrund)
+12. Zeilenumbruch in Headlines nur an inhaltlich sinnvollen Stellen
+13. Kein Waisenkind (einzelnes letztes Wort in Fließtext-Zeile)
+14. Headlines maximal 2 Zeilen – im Ausnahmefall 3 OK
+15. Headlines deutlich größer/dicker als Fließtext
+16. Einheitliche Schriftgrößen für alle Headlines, Paragraphen, Bullets, Buttons
+17. Abstände zwischen Elementen einheitlich (Headline–Text = Text–Button)
+18. Einheitliche Headline-Formatierung (nur normal oder nur bold)
+19. Maximal 1 hervorgehobene Stelle pro Headline (Markierung/Unterstreichung)
+20. Textschriftgröße mindestens 16px (visuell beurteilen)
+21. Section-Abstände oben/unten einheitlich und weder zu groß noch zu klein
+22. Inhaltsbreite zwischen 1250 und 1400px
+23. Im 2-Spalten-Format keine leeren Flächen in einer Spalte
+24. Buttons: keine oder nur leichte Animation, alle identisch eingestellt
+25. Onepage-Link bei Modal-Buttons entfernt
+26. Impressum und Datenschutz korrekt verlinkt und erreichbar
+27. Emojis/Icons passen zum Text
+28. URL enthält keine Funnel-Art-Begriffe (kein "leadmagnet", "autowebinar", "/lp/")`
+const CR_CHECKS = (c) => `CREATIVES – prüfe exakt diese 17 Punkte:
+1. Keine Rechtschreibfehler im sichtbaren Text
+2. CI-Farben korrekt: ${c.c1||c.color_primary||'n/a'}, ${c.c2||c.color_secondary||'n/a'}, ${c.c3||c.color_accent||'n/a'}
+3. Logo entspricht Corporate Design des Kunden
+4. Schriftart "${c.font||'CI-Schrift'}" verwendet
+5. Maximal 2 verschiedene Schriftarten, maximal 3 verschiedene Schriftgrößen
+6. Buchstabenabstände bei gleichen Schriftarten einheitlich
+7. Zeilenabstände einheitlich
+8. Hoher Kontrast bei übereinanderliegenden Farben/Texten
+9. Texte bündig oder zentriert mit anderen Elementen ausgerichtet
+10. Overlays gehen bis zu den Bildrändern (keine schmalen Ränder sichtbar)
+11. Kein Waisenkind (einzelnes letztes Wort in letzter Zeile)
+12. Format korrekt: quadratisch 1:1 (1080×1080px) oder Story 9:16 (1080×1920px) – Seitenverhältnis visuell beurteilen
+13. Kein Maus-klickt-Button dargestellt, kein Play-Button
+14. Schriftgröße mind. 22px – visuell beurteilen, KEINE px-Zahlen nennen
+15. Keine unnötigen leeren Flächen auf dem Creative
+16. Schrift gut lesbar, nicht zu verschnörkelt
+17. Schrift wirkt ausreichend groß und professionell`
 function buildPrompt(c,type){
   const tones=(c.tones||[]).join(', ')||'n/a'
   const fb=[...(c.feedback_internal||[]).slice(0,5).map(f=>`- [Team/${f.category}] ${f.text}`),...(c.feedback_client||[]).slice(0,5).map(f=>`- [Kunde/${f.category}] ${f.text}`)].join('\n')
-  return `Du bist ein Senior QA-Experte für Marketing-Assets. Direkt, professionell, wohlwollend.
+  
+  let checks = ''
+  if(type==='lp') checks = LP_CHECKS(c)+'\n\n'
+  if(type==='creative') checks = CR_CHECKS(c)+'\n\n'
+  if(type==='video') checks = `VIDEO – prüfe anhand der Frames:
+1. Untertitel: Rechtschreibung, Lesbarkeit, Kontrast, Position (nicht zu nah am Rand)
+2. Untertitel-Design: Schrift, Größe, Hintergrund/Box erkennbar und lesbar
+3. CI-Konformität: Farben (${c.c1||c.color_primary||'n/a'}), Logos, Overlays, Intro/Outro
+4. Allgemeiner visueller Eindruck: Belichtung, Bildqualität, Stabilität
+5. Keine sichtbaren Fehler (verpixelt, abgeschnitten, falsche Grafiken)\n\n`
+  
+  return `Du bist ein erfahrener QA-Experte – du entscheidest klar ob etwas FREIGABE bekommt.
 
-KUNDENPROFIL: Kunde: ${c.name||'?'} | Branche: ${c.industry||'n/a'} | Zielgruppe: ${c.audience||'n/a'} | Ziel: ${c.goal||'n/a'}
-USP: ${c.usp||'n/a'} | CI: ${c.color_primary||'n/a'}, ${c.color_secondary||'n/a'}, ${c.color_accent||'n/a'} | Schrift: ${c.font||'n/a'} | Ton: ${tones} | Verbote: ${c.donts||'keine'}
-${fb?`\nGELERNTES FEEDBACK:\n${fb}`:''}
+KUNDENPROFIL:
+- Kunde: ${c.name||'?'} | Branche: ${c.industry||c.ind||'n/a'} | Zielgruppe: ${c.audience||c.aud||'n/a'}
+- Ziel: ${c.goal||'n/a'} | USP: ${c.usp||'n/a'}
+- CI: Primär ${c.c1||c.color_primary||'n/a'}, Sekundär ${c.c2||c.color_secondary||'n/a'}, Akzent ${c.c3||c.color_accent||'n/a'}
+- Schrift: ${c.font||'n/a'} | Tonalität: ${tones} | Verbote: ${c.donts||c.dont||'keine'}
+${fb?`\nGELERNTES FEEDBACK (berücksichtigen):\n${fb}`:''}
 
-${type==='creative'?`CREATIVES:
-□ Keine Rechtschreibfehler | □ CI-Farben (${c.color_primary}, ${c.color_secondary}, ${c.color_accent}) | □ Schrift "${c.font||'n/a'}", max. 2 Schriftarten, max. 3 Größen
-□ Hoher Kontrast | □ Texte bündig/zentriert | □ Overlays bis zum Rand | □ Kein Waisenkind | □ Format 1:1 oder 9:16 | □ Kein Play-Button | □ Keine leeren Flächen | □ Schrift lesbar`:''}
-${type==='video'?`VIDEO (anhand Frames): □ Untertitel Rechtschreibung/Lesbarkeit/Kontrast/Position | □ CI-Farben/Logos/Overlays | □ Visuelle Qualität | □ Keine Fehler`:''}
+${checks}CONVERSION (immer prüfen): Hauptbotschaft in 3 Sekunden klar? CTA stark und prominent? Trust-Signale vorhanden?
 
-CONVERSION: Hauptbotschaft klar? CTA stark? Trust-Signale?
-VERHALTEN: Wohlwollend. Nur eindeutige Fehler als error. Unsicher → hint.
-FREIGABE: approved=true bei max. 2 Warnungen, keinen Fehlern.
+VERHALTEN – WICHTIG:
+- Sei wohlwollend – kein Perfektionismus, nur echte Probleme melden
+- Schriftgrößen NUR visuell beurteilen, NIEMALS px-Zahlen nennen oder fordern
+- Kontrast nur bemängeln wenn wirklich unleserlich
+- Bei Unsicherheit → type="hint" (zählt NICHT zur Ablehnung)
+- Beschreibe konkret was du im Bild siehst
+
+FREIGABE-LOGIK:
+- FREIGABE (approved:true): max. 2 Warnungen, keine Fehler (hints zählen nicht)
+- KEINE FREIGABE (approved:false): Fehler, CI-Probleme, Platzhalter, oder mehr als 2 Warnungen
 
 JSON (keine Backticks):
-{"approved":true,"verdict_headline":"1 Satz","verdict_reason":"1-2 Sätze","score":85,"issues":[{"type":"error|warning|cro|ci|copy|hint","category":"Creative|Video|CI|CRO|Copy","title":"...","description":"konkret was sichtbar","fix":"Maßnahme"}]}`
+{"approved":true,"verdict_headline":"1 klarer Satz","verdict_reason":"1-2 Sätze Begründung","score":85,"issues":[{"type":"error|warning|cro|ci|copy|hint","category":"LP|Creative|Video|CI|CRO|Copy","title":"...","description":"konkret was sichtbar","fix":"Maßnahme"}]}`
 }
+
 
 async function startAudit(){
   document.getElementById('apUpload').style.display='none'
