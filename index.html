@@ -300,14 +300,7 @@ button{cursor:pointer;transition:all .15s}
     </div>
     <div id="ob1" style="display:none">
       <h1 class="auth-title">Fast fertig!</h1>
-      <p class="auth-sub">Lege die E-Mail-Domain für dein Team fest.</p>
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <div>
-          <label class="label">E-Mail-Domain (optional)</label>
-          <input id="obDomain" placeholder="z.B. meinefirma.de" style="margin-bottom:4px">
-          <div style="font-size:11px;color:var(--text3)">Mitarbeiter mit dieser Domain können automatisch beitreten.</div>
-        </div>
-      </div>
+      <p class="auth-sub">Noch ein letzter Schritt.</p>
       <div style="margin-top:20px;display:flex;gap:10px">
         <button class="btn btn-secondary" onclick="obNext(0)" style="flex:1">Zurück</button>
         <button class="btn btn-primary" onclick="obNext(2)" style="flex:2">Weiter →</button>
@@ -507,17 +500,17 @@ button{cursor:pointer;transition:all .15s}
           </div>
           <div id="colorPalette" style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start">
             <div class="color-item">
-              <div class="big-swatch" style="background:#7C6EF5"><input type="color" id="cc0" value="#7C6EF5" oninput="cColor(0)"><button class="swatch-rm" onclick="event.stopPropagation()" style="display:none">✕</button></div>
+              <div class="big-swatch" id="ccs0" style="background:#7C6EF5"><input type="color" id="cc0" value="#7C6EF5" oninput="cColor(0)"><button class="swatch-rm" onclick="event.stopPropagation()" style="display:none">✕</button></div>
               <span class="swatch-hex" id="cch0">#7C6EF5</span>
               <span class="swatch-role">Primär</span>
             </div>
             <div class="color-item">
-              <div class="big-swatch" style="background:#1a1a1a"><input type="color" id="cc1" value="#1a1a1a" oninput="cColor(1)"><button class="swatch-rm" onclick="event.stopPropagation()" style="display:none">✕</button></div>
+              <div class="big-swatch" id="ccs1" style="background:#1a1a1a"><input type="color" id="cc1" value="#1a1a1a" oninput="cColor(1)"><button class="swatch-rm" onclick="event.stopPropagation()" style="display:none">✕</button></div>
               <span class="swatch-hex" id="cch1">#1a1a1a</span>
               <span class="swatch-role">Sekundär</span>
             </div>
             <div class="color-item">
-              <div class="big-swatch" style="background:#FBBF24"><input type="color" id="cc2" value="#FBBF24" oninput="cColor(2)"><button class="swatch-rm" onclick="event.stopPropagation()" style="display:none">✕</button></div>
+              <div class="big-swatch" id="ccs2" style="background:#FBBF24"><input type="color" id="cc2" value="#FBBF24" oninput="cColor(2)"><button class="swatch-rm" onclick="event.stopPropagation()" style="display:none">✕</button></div>
               <span class="swatch-hex" id="cch2">#FBBF24</span>
               <span class="swatch-role">Akzent</span>
             </div>
